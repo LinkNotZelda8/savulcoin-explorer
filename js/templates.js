@@ -171,42 +171,22 @@ callback(null);
 });
 env.waterfall(tasks, function(){
 output += "\n\n        <div class=\"container-fluid\" id=\"main-panel\">\n            ";
-var tasks = [];
-tasks.push(
-function(callback) {
-env.getTemplate("template-toast.html", false, "default.html", false, function(t_10,t_9) {
+(parentTemplate ? function(e, c, f, r, cb) { cb(""); } : context.getBlock("body"))(env, context, frame, runtime, function(t_10,t_9) {
 if(t_10) { cb(t_10); return; }
-callback(null,t_9);});
-});
-tasks.push(
-function(template, callback){
-template.render(context.getVariables(), frame, function(t_12,t_11) {
-if(t_12) { cb(t_12); return; }
-callback(null,t_11);});
-});
-tasks.push(
-function(result, callback){
-output += result;
-callback(null);
-});
-env.waterfall(tasks, function(){
-output += "\n\n            ";
-(parentTemplate ? function(e, c, f, r, cb) { cb(""); } : context.getBlock("body"))(env, context, frame, runtime, function(t_14,t_13) {
-if(t_14) { cb(t_14); return; }
-output += t_13;
+output += t_9;
 output += "\n        </div>\n    </div>\n</div>\n\n\n<script>\n$(\"#menu-toggle\").click(function(e) {\n    e.preventDefault();\n    $(\"#wrapper\").toggleClass(\"toggled\");\n});\n</script>\n";
 if(parentTemplate) {
 parentTemplate.rootRenderFunc(env, context, frame, runtime, cb);
 } else {
 cb(null, output);
 }
-})})})});
+})})});
 } catch (e) {
   cb(runtime.handleError(e, lineno, colno));
 }
 }
 function b_body(env, context, frame, runtime, cb) {
-var lineno = 16;
+var lineno = 14;
 var colno = 15;
 var output = "";
 try {
@@ -711,30 +691,6 @@ output += "\n        ";
 ;
 }
 output += "\n    </div>\n</div>";
-if(parentTemplate) {
-parentTemplate.rootRenderFunc(env, context, frame, runtime, cb);
-} else {
-cb(null, output);
-}
-;
-} catch (e) {
-  cb(runtime.handleError(e, lineno, colno));
-}
-}
-return {
-root: root
-};
-
-})();
-})();
-(function() {(window.nunjucksPrecompiled = window.nunjucksPrecompiled || {})["template-toast.html"] = (function() {
-function root(env, context, frame, runtime, cb) {
-var lineno = 0;
-var colno = 0;
-var output = "";
-try {
-var parentTemplate = null;
-output += "<div aria-live=\"polite\" aria-atomic=\"true\">\n    <div style=\"position: absolute; bottom: 5rem; right: 0.5rem; width:15rem\">\n        <div class=\"toast\" id=\"toast-template\" role=\"alert\" aria-live=\"assertive\" aria-atomic=\"true\" data-delay=\"4000\">\n            <div class=\"toast-header\">\n                <strong class=\"toast-title\" class=\"mr-auto\"></strong>\n                <button type=\"button\" class=\"ml-2 mb-1 close\" data-dismiss=\"toast\" aria-label=\"Close\">\n                    <span aria-hidden=\"true\">×</span>\n                </button>\n            </div>\n        </div>\n    </div>\n</div>";
 if(parentTemplate) {
 parentTemplate.rootRenderFunc(env, context, frame, runtime, cb);
 } else {

@@ -20,13 +20,13 @@ export default class APIManager {
     }
 
     createWallet(words, callback) {
-        this._post("/operator/wallets", { password: words.join(" ") }).then((result) => {
+        this._post(`/operator/wallets`, { password: words.join(" ") }).then((result) => {
             callback(result.id);
         });
     }
 
     fetchBalance(userData, callback) {
-        this._get("/operator/wallets/" + userData.walletId, result => {
+        this._get(`/operator/wallets/${userData.walletId}`, (result) => {
             let addresses = result.addresses;
 
             var totalBalance = 0;
@@ -39,34 +39,36 @@ export default class APIManager {
     }
 
     fetchAddresses(userData, callback) {
-        this._get("/operator/wallets/" + userData.walletId + "/addresses", result => {
+        this._get(`/operator/wallets/${userData.walletId}/addresses`, (result) => {
             callback(result);
         });
     }
 
     fetchAddressBalance(addressId, callback) {
-        this._get("/operator/" + addressId + "/balance", result => {
+        this._get(`/operator/${addressId}/balance`, (result) => {
             callback(result != null ? result.balance : 0);
-        })
+        }, true);
     }
 
     createAddress(userData, callback) {
-        this._post("/operator/wallets/" + userData.walletId + "/addresses", { walletId: userData.walletId }, userData.password).then(result => {
+        this._post(`/operator/wallets/${userData.walletId}/addresses`, { walletId: userData.walletId }, userData.password).then((result) => {
             callback(result.address);
         });
     }
 
     _error(err) {
-
+        toastr.error("İşleminiz yaparken bir hata oluştu. Sonra tekrar deneyin.");
     }
 
-    _get(path, callback) {
+    _get(path, callback, suppressErrors=false) {
         return $.getJSON(this.nodeUrl + path)
             .then((result) => {
                 callback(result);
             })
             .fail((error) => {
-                this._error(error);
+                if (!suppressErrors)
+                    this._error(error);
+                
                 callback(null);
             });
     }
@@ -81,7 +83,7 @@ export default class APIManager {
             beforeSend: (xhr) => {
                 if (password != null)
                     xhr.setRequestHeader("password", password)
-            }
+            }   
           });
     }
 }
