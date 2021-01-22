@@ -82,7 +82,7 @@ output += "\n<h1 class=\"mt-4\">SavulCoin hesabın</h1>\n<hr>\n\n";
 if((lineno = 5, colno = 25, runtime.callWrap(runtime.memberLookup((runtime.contextOrFrameLookup(context, frame, "userData")),"isLoggedIn"), "userData[\"isLoggedIn\"]", context, []))) {
 output += "\n    Cüzdan ID: <input type=\"text\" value=\"";
 output += runtime.suppressValue(runtime.memberLookup((runtime.contextOrFrameLookup(context, frame, "userData")),"walletId"), env.opts.autoescape);
-output += "\" disabled style=\"cursor: text;\" class=\"form-control\">\n    <br>\n    <div id=\"account-balance\">\n        <div class=\"spinner-border text-primary\" role=\"status\">\n            <span class=\"sr-only\">Yükleniyor...</span>\n        </div>\n    </div>\n\n    <br>\n    <h5>Adreslerin</h5>\n    <div id=\"account-addresses\">\n        <div class=\"spinner-border text-primary\" role=\"status\">\n            <span class=\"sr-only\">Yükleniyor...</span>\n        </div>\n    </div>\n    <br>\n    <h5>Diğer</h5>\n    <a href=\"javascript:void(0)\" data-backup-account=\"true\" class=\"btn btn-success\">Hesabını Yedekle</a>\n    <a href=\"javascript:void(0)\" data-log-off=\"true\" class=\"btn btn-danger\">Çıkış Yap</a>\n\n";
+output += "\" disabled style=\"cursor: text;\" class=\"form-control\">\n    <br>\n    <div id=\"account-balance\">\n        <div class=\"spinner-border text-primary\" role=\"status\">\n            <span class=\"sr-only\">Yükleniyor...</span>\n        </div>\n    </div>\n\n    <br>\n    <h5>Adreslerin</h5>\n    <div id=\"account-addresses\">\n        <div class=\"spinner-border text-primary\" role=\"status\">\n            <span class=\"sr-only\">Yükleniyor...</span>\n        </div>\n    </div>\n    <br>\n    <h5>Diğer</h5>\n    <a href=\"javascript:void(0)\" id=\"backup-account\" class=\"btn btn-success\">Hesabını Yedekle</a>\n    <a href=\"javascript:void(0)\" id=\"log-off\" class=\"btn btn-danger\">Çıkış Yap</a>\n\n";
 ;
 }
 else {
@@ -468,7 +468,7 @@ output += runtime.suppressValue(runtime.contextOrFrameLookup(context, frame, "mo
 output += "\">";
 output += runtime.suppressValue(runtime.contextOrFrameLookup(context, frame, "title"), env.opts.autoescape);
 output += "</h5>\n            <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\">\n            <span aria-hidden=\"true\">&times;</span>\n            </button>\n        </div>\n        <div class=\"modal-body\">\n            ";
-output += runtime.suppressValue(runtime.contextOrFrameLookup(context, frame, "body"), env.opts.autoescape);
+output += runtime.suppressValue(env.getFilter("safe").call(context, runtime.contextOrFrameLookup(context, frame, "body")), env.opts.autoescape);
 output += "\n        </div>\n        <div class=\"modal-footer\">\n            <button type=\"button\" class=\"btn btn-secondary\" data-dismiss=\"modal\">Hayır</button>\n            <button type=\"button\" id=\"yes-button-";
 output += runtime.suppressValue(runtime.contextOrFrameLookup(context, frame, "modal_id"), env.opts.autoescape);
 output += "\" class=\"btn btn-primary\">Evet</button>\n        </div>\n        </div>\n    </div>\n</div>";

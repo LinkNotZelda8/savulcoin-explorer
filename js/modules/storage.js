@@ -21,6 +21,16 @@ export default class Storage {
         window.localStorage.setItem(STORAGE_USERDATA_NAME, JSON.stringify(this.userData));
     }
 
+    export() {
+        let text =
+`Hesap şifresi = ${this.userData.password}
+Cüzdan ID = ${this.userData.walletId}`;
+
+        var blob = new Blob([text], {type: "text/plain;charset=utf-8"});
+
+        saveAs(blob, "hesap-yedek-" + new Date().toLocaleDateString() + ".txt");
+    }
+
     constructor() {
         this.load();
     }
