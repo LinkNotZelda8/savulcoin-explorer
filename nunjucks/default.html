@@ -1,0 +1,29 @@
+
+<div class="d-flex" id="wrapper">
+
+
+    <!-- Sidebar -->
+    {% include "sidebar.html" %}
+    <!-- /#sidebar-wrapper -->
+
+    <!-- Page Content -->
+    <div id="page-content-wrapper">
+
+        {% include "navbar.html" %}
+
+        <div class="container-fluid" id="main-panel">
+            {% include "template-toast.html" %}
+
+            {% block body %}
+            {% endblock %}
+        </div>
+    </div>
+</div>
+
+
+<script>
+$("#menu-toggle").click(function(e) {
+    e.preventDefault();
+    $("#wrapper").toggleClass("toggled");
+});
+</script>

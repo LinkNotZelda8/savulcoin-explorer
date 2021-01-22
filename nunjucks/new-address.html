@@ -1,0 +1,17 @@
+{% extends "default.html" %}
+{% block body %}
+<h1 class="mt-4">SavulCoin adresi oluştur</h1>
+<hr>
+
+{% if not userData.isLoggedIn() %}
+    {% include "error-not-logged-in.html" %}
+{% else %}
+    <button id="create-new-address" class="btn btn-primary">İşlemi başlat</button>
+
+    <div id="create-address-1" style="display: none">
+        Adresin başarıyla oluşturuldu.
+        <input type="text" value="" disabled style="cursor: text;" class="form-control">
+    </div>
+{% endif %}
+
+{% endblock %}

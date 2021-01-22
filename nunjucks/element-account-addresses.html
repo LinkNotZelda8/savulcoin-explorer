@@ -1,0 +1,11 @@
+{% if addresses.length == 0 %}
+    Hiç adresin yok. Para göndermek veya para almak için adres oluşturman lazım. <a href="#/yeni-adres">Adres oluşturmak için bana tıkla.</a>
+{% else %}
+
+    <ul class="list-group list-group-flush">
+        {% for address in addresses %}
+        <li class="list-group-item">- <a href="#/adres/{{ address}}">{{ address }} </a> (<strong>{{ addressBalance[address] }}</strong> Savulcoin)</li>
+        {% endfor %}
+    </ul>
+
+{% endif %}

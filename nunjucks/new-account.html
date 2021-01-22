@@ -1,0 +1,25 @@
+{% extends "default.html" %}
+{% block body %}
+<h1 class="mt-4">SavulCoin hesabı oluştur</h1>
+<hr>
+
+{% if userData.isLoggedIn() %}
+{% include "error-already-logged-in.html" %}
+{% else %}
+    <button id="create-new-wallet" class="btn btn-primary">İşlemi başlat</button>
+
+    <div id="create-wallet-1" style="display: none">
+        <textarea style="cursor: text" class="form-control" disabled cols="75" rows="2"></textarea>
+
+        Üstteki 12 rastgele harf senin şifren. Bu şifreyi bir yere kaydet, <strong>unutursan hesabının içindeki tüm Savulcoin'ler kaybolur</strong>.
+        <br><br>
+        <button type="button" data-loading-text="Hesap oluşturuluyor..." id="create-new-wallet-api" class="btn btn-primary">Şifreyi kaydettim ve devam ediyorum</button>
+    </div>
+
+    <div id="create-wallet-2" style="display: none">
+        SavulCoin hesabın başarıyla oluşturuldu! <br>
+        <a href="#/hesap">Hesabını kullanmaya başlamak için tıkla.</a>
+    </div>
+{% endif %}
+
+{% endblock %}

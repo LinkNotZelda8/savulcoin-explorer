@@ -1,0 +1,18 @@
+{% macro render_list_item(name, url) -%}
+    <a href="{{ url }}" class="list-group-item list-group-item-action bg-light">{{ name }}</a>
+{%- endmacro %}
+
+<div class="bg-light border-right" id="sidebar-wrapper">
+    <div class="sidebar-heading">Savulcoin </div>
+    <div class="list-group list-group-flush">
+        {{ render_list_item("Ana Sayfa", "#/") }}
+
+        {% if userData.isLoggedIn() %}
+            {{ render_list_item("Hesap Detayları", "#/hesap") }}
+            {{ render_list_item("SavulCoin Gönder", "#/savulcoin-gonder") }}
+            {{ render_list_item("Adres oluştur", "#/yeni-adres") }}
+        {% else %}
+            {{ render_list_item("Hesap Oluştur", "#/yeni-hesap") }}
+        {% endif %}
+    </div>
+</div>

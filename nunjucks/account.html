@@ -1,0 +1,27 @@
+{% extends "default.html" %}
+{% block body %}
+<h1 class="mt-4">SavulCoin hesabın</h1>
+<hr>
+
+{% if userData.isLoggedIn() %}
+    Cüzdan ID: <input type="text" value="{{ userData.walletId }}" disabled style="cursor: text;" class="form-control">
+    <br>
+    <div id="account-balance">
+        <div class="spinner-border text-primary" role="status">
+            <span class="sr-only">Yükleniyor...</span>
+        </div>
+    </div>
+
+    <br>
+    <h5>Adreslerin</h5>
+    <div id="account-addresses">
+        <div class="spinner-border text-primary" role="status">
+            <span class="sr-only">Yükleniyor...</span>
+        </div>
+    </div>
+
+{% else %}
+    {% include "error-not-logged-in.html" %}
+{% endif %}
+
+{% endblock %}
