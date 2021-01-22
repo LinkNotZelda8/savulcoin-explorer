@@ -56,14 +56,17 @@ export default class APIManager {
         });
     }
 
-    createTransaction(userData, fromAddress, toAddress, amount) {
+    createTransaction(userData, fromAddress, toAddress, amount, callback) {
         this._post(`/operator/wallets/${userData.walletId}/transactions`, {
             fromAddress: fromAddress,
             toAddress: toAddress,
             amount: amount,
             changeAddress: fromAddress
         }, userData.password).then((result) => {
-            toastr.info("İşlem başarıyla gönderildi. 5 dakika ile 1 saat arasında SavulCoin gönderdiğiniz kişiye ulaşacaktır.");
+            toastr.success("İşlem başarıyla gönderildi. 5 dakika ile 1 saat arasında SavulCoin gönderdiğiniz kişiye ulaşacaktır.", {
+                showDuration: 10000
+            });
+            callback(true);
         });
     }
 

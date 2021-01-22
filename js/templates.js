@@ -272,10 +272,10 @@ var output = "";
 try {
 var parentTemplate = null;
 output += "<div class=\"card\" style=\"width: 25rem;\">\n    <div class=\"card-body\">\n        <h5 class=\"card-title\">Hesap Bakiyesi</h5>\n        \n        ";
-if(runtime.contextOrFrameLookup(context, frame, "balance") >= 1000) {
-output += "\n            <p class=\"card-text\">Hesap bakiyen (bin): <strong>";
+if(runtime.contextOrFrameLookup(context, frame, "balance") >= 1000 * 1000) {
+output += "\n            <p class=\"card-text\">Hesap bakiyen (milyon): <strong>";
 output += runtime.suppressValue(runtime.contextOrFrameLookup(context, frame, "balancek"), env.opts.autoescape);
-output += "K SAVUL</strong></p>\n        ";
+output += "ML SAVUL</strong></p>\n        ";
 ;
 }
 output += "\n        \n        <p class=\"card-text\">Hesap bakiyen: <strong>";

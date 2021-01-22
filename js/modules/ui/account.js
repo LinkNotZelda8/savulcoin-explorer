@@ -24,7 +24,7 @@ $("#app").on("render", (e, page) => {
                 clearInterval(int);
                 
                 $("#account-balance").html(
-                    window.main.nunjucksEnv.render("element-account-balance.html", { balance: totalBalance, balancek: totalBalance / 1000 })
+                    window.main.nunjucksEnv.render("element-account-balance.html", { balance: totalBalance, balanceML: totalBalance / 1000000 })
                 );
                 
                 $("#account-addresses").html(
