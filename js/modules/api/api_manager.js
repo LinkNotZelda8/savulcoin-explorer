@@ -63,7 +63,7 @@ export default class APIManager {
             amount: amount,
             changeAddress: fromAddress
         }, userData.password).then((result) => {
-            toastr.info("İşlem başarıyla gönderildi. 5 dakika ile 3-4 saat içerisinde para gönderdiğiniz kişiye ulaşacaktır.");
+            toastr.info("İşlem başarıyla gönderildi. 5 dakika ile 1 saat arasında SavulCoin gönderdiğiniz kişiye ulaşacaktır.");
         });
     }
 

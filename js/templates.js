@@ -687,7 +687,7 @@ output += "\n";
 });
 }
 else {
-output += "\n\n<div id=\"send-savulcoin-form\">\n  <div class=\"spinner-border text-primary\" role=\"status\">\n      <span class=\"sr-only\">Yükleniyor...</span>\n  </div>\n</div>\n\n";
+output += "\n\n<div id=\"send-savulcoin-form-container\">\n  <div class=\"spinner-border text-primary\" role=\"status\">\n      <span class=\"sr-only\">Yükleniyor...</span>\n  </div>\n</div>\n\n";
 ;
 }
 output += "\n\n";
