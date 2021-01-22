@@ -1,0 +1,67 @@
+{% extends "default.html" %}
+{% block body %}
+<h1 class="mt-4">Giriş Yap</h1>
+<hr>
+
+{% if userData.isLoggedIn() %}
+{% include "error-already-logged-in.html" %}
+{% else %}
+
+<form autocomplete="off" id="login-form" class="row g-3 needs-validation" novalidate>
+    <!-- Password -->
+    <div class="col-md-10">
+        <label for="validationCustom01" class="form-label">Şifren</label>
+        <input type="text" name="password" minlength="10" maxlength="250" class="form-control" id="validationCustom01" required>
+        <div class="valid-feedback">
+            Doğru gibi!
+        </div>
+        <div class="invalid-feedback">
+            Doğru düzgün bir şifre girin.
+        </div>
+    </div>
+
+     <!-- Wallet ID -->
+     <div class="col-md-10">
+        <label for="validationCustom01" class="form-label">Cüzdan ID</label>
+        <input type="text" name="walletId" minlength="64" maxlength="64" class="form-control" id="validationCustom01" required>
+        <div class="valid-feedback">
+            Doğru gibi!
+        </div>
+        <div class="invalid-feedback">
+            Doğru düzgün bir Cüzdan ID'si girin.
+        </div>
+    </div>
+    <div class="col-md-2"></div>
+
+    <div class="col-12">&nbsp;</div>
+    <div class="col-12">
+      <button class="btn btn-primary" type="submit">Giriş Yap</button>
+    </div>
+  </form>
+
+<script>
+    // Example starter JavaScript for disabling form submissions if there are invalid fields
+(function () {
+  'use strict'
+
+  // Fetch all the forms we want to apply custom Bootstrap validation styles to
+  var forms = document.querySelectorAll('.needs-validation')
+
+  // Loop over them and prevent submission
+  Array.prototype.slice.call(forms)
+    .forEach(function (form) {
+      form.addEventListener('submit', function (event) {
+        if (!form.checkValidity()) {
+          event.preventDefault()
+          event.stopPropagation()
+        }
+
+        form.classList.add('was-validated')
+      }, false)
+    })
+})()
+</script>
+    
+{% endif %}
+
+{% endblock %}

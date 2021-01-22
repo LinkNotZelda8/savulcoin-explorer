@@ -433,9 +433,85 @@ var colno = 3;
 var output = "";
 try {
 var frame = frame.push(true);
-output += "\n<h1 class=\"mt-4\">SavulCoin</h1>\n<hr>\n\n<h2>SavulCoin nedir?</h2>\nSavulCoin bir kripto para birimidir. Hiçbir banka / kuruluş / devlet tarafından yönetilmemektedir. YapSavun kurucusu <strong>zelda</strong> tarafından başlatılmıştır.\n\n<br>\n<br>\n<h2>SavulCoin hesabı nasıl oluşturabilirim?</h2>\n<a href=\"#/yeni-hesap\">Bana basarak yeni hesap oluşturabilirsin.</a>\n<br><br>\n\n";
-if((lineno = 14, colno = 25, runtime.callWrap(runtime.memberLookup((runtime.contextOrFrameLookup(context, frame, "userData")),"isLoggedIn"), "userData[\"isLoggedIn\"]", context, []))) {
+output += "\n<h1 class=\"mt-4\">SavulCoin</h1>\n<hr>\n\n<h2>SavulCoin nedir?</h2>\nSavulCoin bir kripto para birimidir. Hiçbir banka / kuruluş / devlet tarafından yönetilmemektedir. YapSavun kurucusu <strong>zelda</strong> tarafından başlatılmıştır.\n\n<br>\n<br>\n<h2>SavulCoin hesabı nasıl oluşturabilirim?</h2>\n<a href=\"#/yeni-hesap\" class=\"btn btn-primary\">Hesap oluştur</a>\n<a href=\"#/giris-yap\" class=\"btn btn-info\">Giriş yap</a>\n<br><br>\n\n";
+if((lineno = 15, colno = 25, runtime.callWrap(runtime.memberLookup((runtime.contextOrFrameLookup(context, frame, "userData")),"isLoggedIn"), "userData[\"isLoggedIn\"]", context, []))) {
 output += "\n    <a href=\"#/hesap\" class=\"btn btn-primary\">Hesabına geçmek için tıkla</a>\n";
+;
+}
+output += "\n\n";
+cb(null, output);
+;
+} catch (e) {
+  cb(runtime.handleError(e, lineno, colno));
+}
+}
+return {
+b_body: b_body,
+root: root
+};
+
+})();
+})();
+(function() {(window.nunjucksPrecompiled = window.nunjucksPrecompiled || {})["login.html"] = (function() {
+function root(env, context, frame, runtime, cb) {
+var lineno = 0;
+var colno = 0;
+var output = "";
+try {
+var parentTemplate = null;
+env.getTemplate("default.html", true, "login.html", false, function(t_3,t_2) {
+if(t_3) { cb(t_3); return; }
+parentTemplate = t_2
+for(var t_1 in parentTemplate.blocks) {
+context.addBlock(t_1, parentTemplate.blocks[t_1]);
+}
+output += "\n";
+(parentTemplate ? function(e, c, f, r, cb) { cb(""); } : context.getBlock("body"))(env, context, frame, runtime, function(t_5,t_4) {
+if(t_5) { cb(t_5); return; }
+output += t_4;
+if(parentTemplate) {
+parentTemplate.rootRenderFunc(env, context, frame, runtime, cb);
+} else {
+cb(null, output);
+}
+})});
+} catch (e) {
+  cb(runtime.handleError(e, lineno, colno));
+}
+}
+function b_body(env, context, frame, runtime, cb) {
+var lineno = 1;
+var colno = 3;
+var output = "";
+try {
+var frame = frame.push(true);
+output += "\n<h1 class=\"mt-4\">Giriş Yap</h1>\n<hr>\n\n";
+if((lineno = 5, colno = 25, runtime.callWrap(runtime.memberLookup((runtime.contextOrFrameLookup(context, frame, "userData")),"isLoggedIn"), "userData[\"isLoggedIn\"]", context, []))) {
+output += "\n";
+var tasks = [];
+tasks.push(
+function(callback) {
+env.getTemplate("error-already-logged-in.html", false, "login.html", false, function(t_7,t_6) {
+if(t_7) { cb(t_7); return; }
+callback(null,t_6);});
+});
+tasks.push(
+function(template, callback){
+template.render(context.getVariables(), frame, function(t_9,t_8) {
+if(t_9) { cb(t_9); return; }
+callback(null,t_8);});
+});
+tasks.push(
+function(result, callback){
+output += result;
+callback(null);
+});
+env.waterfall(tasks, function(){
+output += "\n";
+});
+}
+else {
+output += "\n\n<form autocomplete=\"off\" id=\"login-form\" class=\"row g-3 needs-validation\" novalidate>\n    <!-- Password -->\n    <div class=\"col-md-10\">\n        <label for=\"validationCustom01\" class=\"form-label\">Şifren</label>\n        <input type=\"text\" name=\"password\" minlength=\"10\" maxlength=\"250\" class=\"form-control\" id=\"validationCustom01\" required>\n        <div class=\"valid-feedback\">\n            Doğru gibi!\n        </div>\n        <div class=\"invalid-feedback\">\n            Doğru düzgün bir şifre girin.\n        </div>\n    </div>\n\n     <!-- Wallet ID -->\n     <div class=\"col-md-10\">\n        <label for=\"validationCustom01\" class=\"form-label\">Cüzdan ID</label>\n        <input type=\"text\" name=\"walletId\" minlength=\"64\" maxlength=\"64\" class=\"form-control\" id=\"validationCustom01\" required>\n        <div class=\"valid-feedback\">\n            Doğru gibi!\n        </div>\n        <div class=\"invalid-feedback\">\n            Doğru düzgün bir Cüzdan ID'si girin.\n        </div>\n    </div>\n    <div class=\"col-md-2\"></div>\n\n    <div class=\"col-12\">&nbsp;</div>\n    <div class=\"col-12\">\n      <button class=\"btn btn-primary\" type=\"submit\">Giriş Yap</button>\n    </div>\n  </form>\n\n<script>\n    // Example starter JavaScript for disabling form submissions if there are invalid fields\n(function () {\n  'use strict'\n\n  // Fetch all the forms we want to apply custom Bootstrap validation styles to\n  var forms = document.querySelectorAll('.needs-validation')\n\n  // Loop over them and prevent submission\n  Array.prototype.slice.call(forms)\n    .forEach(function (form) {\n      form.addEventListener('submit', function (event) {\n        if (!form.checkValidity()) {\n          event.preventDefault()\n          event.stopPropagation()\n        }\n\n        form.classList.add('was-validated')\n      }, false)\n    })\n})()\n</script>\n    \n";
 ;
 }
 output += "\n\n";
@@ -785,6 +861,8 @@ output += "\n        ";
 else {
 output += "\n            ";
 output += runtime.suppressValue((lineno = 14, colno = 31, runtime.callWrap(macro_t_1, "render_list_item", context, ["Hesap Oluştur","#/yeni-hesap"])), env.opts.autoescape);
+output += "\n            ";
+output += runtime.suppressValue((lineno = 15, colno = 31, runtime.callWrap(macro_t_1, "render_list_item", context, ["Giriş Yap","#/giris-yap"])), env.opts.autoescape);
 output += "\n        ";
 ;
 }

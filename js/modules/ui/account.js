@@ -3,6 +3,10 @@ $("#app").on("render", (e, page) => {
         return;
     }
 
+    if (!window.main.storage.userData.isLoggedIn()) {
+        return;
+    }
+
     function displayAccountData() {
         window.main.api.fetchAddresses(window.main.storage.userData, (addresses) => {
             var done = 0;
@@ -40,6 +44,13 @@ $("#app").on("render", (e, page) => {
         $(document).on("click", "#backup-account", () => {
             window.main.ui.modalYesNo("Uyarı", "Hesabınızı yedeklemek istediğinize emin misiniz? <strong>Bu yedeğe sahip herkes hesabınıza erişebilir.</strong>", () => {
                 window.main.storage.export();
+            });
+        });
+
+        $(document).on("click", "#log-off", () => {
+            window.main.ui.modalYesNo("Uyarı", "Emin misiniz? <strong>Eğer yedeğiniz yoksa hesabınızı SONSUZA KADAR kaybedeceksiniz!</strong>", () => {
+                window.main.storage.logoff();
+                window.location.reload();
             });
         });
     }

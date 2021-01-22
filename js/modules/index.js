@@ -8,6 +8,7 @@ import "./ui/new_address.js";
 import "./ui/account.js";
 import "./ui/send_savulcoin.js";
 import "./ui/general.js";
+import "./ui/login.js";
 
 class Main {
     api = new APIManager(); 
@@ -24,6 +25,7 @@ class Main {
         this.navigation.addPage("/yeni-adres", "new-address.html");
         this.navigation.addPage("/savulcoin-gonder", "send-savulcoin.html");
         this.navigation.addPage("/hesap", "account.html");
+        this.navigation.addPage("/giris-yap", "login.html");
 
         this.nunjucksEnv.globals["userData"] = this.storage.userData;
     }

@@ -31,6 +31,19 @@ Cüzdan ID = ${this.userData.walletId}`;
         saveAs(blob, "hesap-yedek-" + new Date().toLocaleDateString() + ".txt");
     }
 
+    logoff() {
+        window.localStorage.clear();
+        this.userData = new UserData();
+    }
+
+    login(password, walletId) {
+        this.userData = new UserData();
+        this.userData.password = password;
+        this.userData.walletId = walletId;
+
+        this.save();
+    }
+
     constructor() {
         this.load();
     }
