@@ -5,5 +5,8 @@
   "scripts": {
     "dev": "parcel index.html",
     "build": "parcel build index.html"
+  },
+  "dependencies": {
+    "nunjucks": "^3.2.2"
   }
 }
