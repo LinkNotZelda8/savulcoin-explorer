@@ -56,6 +56,17 @@ export default class APIManager {
         });
     }
 
+    createTransaction(userData, fromAddress, toAddress, amount) {
+        this._post(`/operator/wallets/${userData.walletId}/transactions`, {
+            fromAddress: fromAddress,
+            toAddress: toAddress,
+            amount: amount,
+            changeAddress: fromAddress
+        }, userData.password).then((result) => {
+            toastr.info("İşlem başarıyla gönderildi. 5 dakika ile 3-4 saat içerisinde para gönderdiğiniz kişiye ulaşacaktır.");
+        });
+    }
+
     _error(err) {
         toastr.error("İşleminiz yaparken bir hata oluştu. Sonra tekrar deneyin.");
     }
@@ -84,6 +95,8 @@ export default class APIManager {
                 if (password != null)
                     xhr.setRequestHeader("password", password)
             }   
+          }).fail((error) => {
+              this._error(error);
           });
     }
 }
