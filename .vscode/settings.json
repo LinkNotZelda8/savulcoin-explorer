@@ -1,2 +1,10 @@
 {
+    "emeraldwalk.runonsave": {
+        "commands": [
+            {
+                "match": "\\.html$",
+                "cmd": "sh ./precompile-nunjucks.sh"
+            }
+        ]
+    }
 }
