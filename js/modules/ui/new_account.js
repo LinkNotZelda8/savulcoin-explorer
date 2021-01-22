@@ -24,5 +24,9 @@ $(document).on("click", "#create-new-wallet-api", function() {
 
         $("#create-wallet-1").hide();
         $("#create-wallet-2").show(); // Done.
+
+        window.main.ui.modalYesNo("Bilgi", "Hemen şimdi hesap yedeği almak ister misiniz?", () => {
+            window.main.storage.export();
+        })
     });
 })
