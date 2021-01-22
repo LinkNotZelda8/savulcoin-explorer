@@ -1,8 +1,7 @@
 $(document).on("submit", "#send-savulcoin-form", function () {
     var button = $(this).find("button");
 
-    button.animate({ opacity: 0.75 }, 100); // Fade a little bit
-    button.prop("disabled", true);
+    window.main.fadeAndDisable(button);
 
     button.html("Gönderiliyor...");
 });
@@ -14,7 +13,7 @@ $("#app").on("render", (e, page) => {
 
     window.main.api.fetchAddresses(window.main.storage.userData, (addresses) => {
         $("#send-savulcoin-form").html(
-            window.main.nunjucksEnv.render("send-savulcoin-form.html", { addressList: addresses })
+            window.main.nunjucksEnv.render("element-send-savulcoin.html", { addressList: addresses })
         );
     });
 })

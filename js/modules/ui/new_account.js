@@ -14,9 +14,9 @@ $(document).on("click", "#create-new-wallet", function () {
 })
 
 $(document).on("click", "#create-new-wallet-api", function() {
-    $("#create-wallet-1").animate({ opacity: 0.5 }, 100); // Fade a little bit
-    $(this).prop("disabled", true);
-
+    window.main.ui.fadeAndDisable($("#create-wallet-1"));
+    window.main.ui.fadeAndDisable($(this));
+    
     window.main.api.createWallet(wordList, (id) => {
         window.main.storage.userData.walletId = id;
         window.main.storage.userData.password = wordList.join(" ");

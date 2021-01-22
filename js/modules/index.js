@@ -7,6 +7,7 @@ import "./ui/new_account.js";
 import "./ui/new_address.js";
 import "./ui/account.js";
 import "./ui/send_savulcoin.js";
+import "./ui/general.js";
 
 class Main {
     api = new APIManager(); 

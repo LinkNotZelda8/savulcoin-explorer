@@ -232,11 +232,13 @@ frame.set("loop.revindex0", t_2 - t_1 - 1);
 frame.set("loop.first", t_1 === 0);
 frame.set("loop.last", t_1 === t_2 - 1);
 frame.set("loop.length", t_2);
-output += "\n        <li class=\"list-group-item\">- <a href=\"#/adres/";
+output += "\n        <li class=\"list-group-item\"><a href=\"javascript:void(0)\" data-copy-to-clipboard=\"";
+output += runtime.suppressValue(t_4, env.opts.autoescape);
+output += "\">Kopyala</a> - <a href=\"#/adres/";
 output += runtime.suppressValue(t_4, env.opts.autoescape);
 output += "\">";
 output += runtime.suppressValue(t_4, env.opts.autoescape);
-output += " </a> (<strong>";
+output += "</a> (<strong>";
 output += runtime.suppressValue(runtime.memberLookup((runtime.contextOrFrameLookup(context, frame, "addressBalance")),t_4), env.opts.autoescape);
 output += "</strong> Savulcoin)</li>\n        ";
 ;
@@ -279,6 +281,61 @@ output += "K SAVUL</strong></p>\n        ";
 output += "\n        \n        <p class=\"card-text\">Hesap bakiyen: <strong>";
 output += runtime.suppressValue(runtime.contextOrFrameLookup(context, frame, "balance"), env.opts.autoescape);
 output += " SAVUL</strong></p>\n        <a href=\"#/savulcoin-gonder\" class=\"card-link\">SavulCoin gönder</a>\n    </div>\n</div>";
+if(parentTemplate) {
+parentTemplate.rootRenderFunc(env, context, frame, runtime, cb);
+} else {
+cb(null, output);
+}
+;
+} catch (e) {
+  cb(runtime.handleError(e, lineno, colno));
+}
+}
+return {
+root: root
+};
+
+})();
+})();
+(function() {(window.nunjucksPrecompiled = window.nunjucksPrecompiled || {})["element-send-savulcoin.html"] = (function() {
+function root(env, context, frame, runtime, cb) {
+var lineno = 0;
+var colno = 0;
+var output = "";
+try {
+var parentTemplate = null;
+if(runtime.memberLookup((runtime.contextOrFrameLookup(context, frame, "addressList")),"length") < 1) {
+output += "\n  Para göndermek için ilk önce SavulCoin adresi oluşturman gerekiyor. <a href=\"#/yeni-adres\">Oluşturmak için bana tıkla.</a>\n";
+;
+}
+else {
+output += "\n<form id=\"send-savulcoin-form\" class=\"row g-3 needs-validation\" novalidate>\n    <!-- To Address -->\n    <div class=\"col-md-10\">\n        <label for=\"validationCustom01\" class=\"form-label\">Göndereceğinin kişinin adresi</label>\n        <input type=\"text\" name=\"toAddress\" minlength=\"64\" maxlength=\"64\" class=\"form-control\" id=\"validationCustom01\" required>\n        <div class=\"valid-feedback\">\n            Doğru gibi!\n        </div>\n        <div class=\"invalid-feedback\">\n            Doğru düzgün bir adres girin.\n        </div>\n    </div>\n    <div class=\"col-md-2\"></div>\n\n    <!-- From Address -->\n    <div class=\"col-md-10\">\n        <label for=\"validationCustom01\" class=\"form-label\">Hangi adresinden gönderilsin</label>\n\n        <select class=\"form-control\" name=\"fromAddress\" required>\n            ";
+frame = frame.push();
+var t_3 = runtime.contextOrFrameLookup(context, frame, "addressList");
+if(t_3) {t_3 = runtime.fromIterator(t_3);
+var t_2 = t_3.length;
+for(var t_1=0; t_1 < t_3.length; t_1++) {
+var t_4 = t_3[t_1];
+frame.set("address", t_4);
+frame.set("loop.index", t_1 + 1);
+frame.set("loop.index0", t_1);
+frame.set("loop.revindex", t_2 - t_1);
+frame.set("loop.revindex0", t_2 - t_1 - 1);
+frame.set("loop.first", t_1 === 0);
+frame.set("loop.last", t_1 === t_2 - 1);
+frame.set("loop.length", t_2);
+output += "\n                <option value=\"";
+output += runtime.suppressValue(t_4, env.opts.autoescape);
+output += "\">";
+output += runtime.suppressValue(t_4, env.opts.autoescape);
+output += "</option>\n            ";
+;
+}
+}
+frame = frame.pop();
+output += "\n            \n        </select>\n\n        <div class=\"valid-feedback\">\n            Doğru gibi!\n        </div>\n        <div class=\"invalid-feedback\">\n            Doğru düzgün bir adres girin.\n        </div>\n    </div>\n    <div class=\"col-md-2\"></div>\n\n    <div class=\"col-md-4\">\n      <label for=\"validationCustom03\" class=\"form-label\">Miktar</label>\n      <input type=\"number\" name=\"amount\" class=\"form-control\" id=\"validationCustom03\" required>\n      <div class=\"invalid-feedback\">\n          Doğru düzgün bir miktar girin.\n      </div>\n    </div>\n    <div class=\"col-12\">\n      <div class=\"form-check\">\n        <input class=\"form-check-input\" type=\"checkbox\" value=\"\" id=\"invalidCheck\" required>\n        <label class=\"form-check-label\" for=\"invalidCheck\">\n          Göndereceğim adresi yeminlen doğru yazdım\n        </label>\n        <div class=\"invalid-feedback\">\n          Kabul etmeden gönderemezsin maalesef.\n        </div>\n      </div>\n    </div>\n    <div class=\"col-12\">&nbsp;</div>\n    <div class=\"col-12\">\n      <button class=\"btn btn-primary\" type=\"submit\">Savulcoin Gönder</button>\n    </div>\n  </form>\n\n<script>\n    // Example starter JavaScript for disabling form submissions if there are invalid fields\n(function () {\n  'use strict'\n\n  // Fetch all the forms we want to apply custom Bootstrap validation styles to\n  var forms = document.querySelectorAll('.needs-validation')\n\n  // Loop over them and prevent submission\n  Array.prototype.slice.call(forms)\n    .forEach(function (form) {\n      form.addEventListener('submit', function (event) {\n        if (!form.checkValidity()) {\n          event.preventDefault()\n          event.stopPropagation()\n        }\n\n        form.classList.add('was-validated')\n      }, false)\n    })\n})()\n</script>\n";
+;
+}
 if(parentTemplate) {
 parentTemplate.rootRenderFunc(env, context, frame, runtime, cb);
 } else {
@@ -376,7 +433,12 @@ var colno = 3;
 var output = "";
 try {
 var frame = frame.push(true);
-output += "\n<h1 class=\"mt-4\">SavulCoin</h1>\n<hr>\n\n<h2>SavulCoin nedir?</h2>\nSavulCoin bir kripto para birimidir. Hiçbir banka / kuruluş / devlet tarafından yönetilmemektedir. YapSavun kurucusu <strong>zelda</strong> tarafından başlatılmıştır.\n\n<br>\n<br>\n<h2>SavulCoin hesabı nasıl oluşturabilirim?</h2>\n<a href=\"#/yeni-hesap\">Bana basarak yeni hesap oluşturabilirsin.</a>\n\n";
+output += "\n<h1 class=\"mt-4\">SavulCoin</h1>\n<hr>\n\n<h2>SavulCoin nedir?</h2>\nSavulCoin bir kripto para birimidir. Hiçbir banka / kuruluş / devlet tarafından yönetilmemektedir. YapSavun kurucusu <strong>zelda</strong> tarafından başlatılmıştır.\n\n<br>\n<br>\n<h2>SavulCoin hesabı nasıl oluşturabilirim?</h2>\n<a href=\"#/yeni-hesap\">Bana basarak yeni hesap oluşturabilirsin.</a>\n<br><br>\n\n";
+if((lineno = 14, colno = 25, runtime.callWrap(runtime.memberLookup((runtime.contextOrFrameLookup(context, frame, "userData")),"isLoggedIn"), "userData[\"isLoggedIn\"]", context, []))) {
+output += "\n    <a href=\"#/hesap\" class=\"btn btn-primary\">Hesabına geçmek için tıkla</a>\n";
+;
+}
+output += "\n\n";
 cb(null, output);
 ;
 } catch (e) {
@@ -561,54 +623,6 @@ cb(null, output);
 }
 return {
 b_body: b_body,
-root: root
-};
-
-})();
-})();
-(function() {(window.nunjucksPrecompiled = window.nunjucksPrecompiled || {})["send-savulcoin-form.html"] = (function() {
-function root(env, context, frame, runtime, cb) {
-var lineno = 0;
-var colno = 0;
-var output = "";
-try {
-var parentTemplate = null;
-output += "\n<form id=\"send-savulcoin-form\" class=\"row g-3 needs-validation\" novalidate>\n    <!-- To Address -->\n    <div class=\"col-md-10\">\n        <label for=\"validationCustom01\" class=\"form-label\">Göndereceğinin kişinin adresi</label>\n        <input type=\"text\" name=\"toAddress\" minlength=\"64\" maxlength=\"64\" class=\"form-control\" id=\"validationCustom01\" required>\n        <div class=\"valid-feedback\">\n            Doğru gibi!\n        </div>\n        <div class=\"invalid-feedback\">\n            Doğru düzgün bir adres girin.\n        </div>\n    </div>\n    <div class=\"col-md-2\"></div>\n\n    <!-- From Address -->\n    <div class=\"col-md-10\">\n        <label for=\"validationCustom01\" class=\"form-label\">Hangi adresinden gönderilsin</label>\n\n        <select class=\"form-control\" name=\"fromAddress\" required>\n            ";
-frame = frame.push();
-var t_3 = runtime.contextOrFrameLookup(context, frame, "addressList");
-if(t_3) {t_3 = runtime.fromIterator(t_3);
-var t_2 = t_3.length;
-for(var t_1=0; t_1 < t_3.length; t_1++) {
-var t_4 = t_3[t_1];
-frame.set("address", t_4);
-frame.set("loop.index", t_1 + 1);
-frame.set("loop.index0", t_1);
-frame.set("loop.revindex", t_2 - t_1);
-frame.set("loop.revindex0", t_2 - t_1 - 1);
-frame.set("loop.first", t_1 === 0);
-frame.set("loop.last", t_1 === t_2 - 1);
-frame.set("loop.length", t_2);
-output += "\n                <option value=\"";
-output += runtime.suppressValue(runtime.memberLookup((t_4),"address"), env.opts.autoescape);
-output += "\">";
-output += runtime.suppressValue(t_4, env.opts.autoescape);
-output += "</option>\n            ";
-;
-}
-}
-frame = frame.pop();
-output += "\n            \n        </select>\n\n        <div class=\"valid-feedback\">\n            Doğru gibi!\n        </div>\n        <div class=\"invalid-feedback\">\n            Doğru düzgün bir adres girin.\n        </div>\n    </div>\n    <div class=\"col-md-2\"></div>\n\n    <div class=\"col-md-4\">\n      <label for=\"validationCustom03\" class=\"form-label\">Miktar</label>\n      <input type=\"number\" name=\"amount\" class=\"form-control\" id=\"validationCustom03\" required>\n      <div class=\"invalid-feedback\">\n          Doğru düzgün bir miktar girin.\n      </div>\n    </div>\n    <div class=\"col-12\">\n      <div class=\"form-check\">\n        <input class=\"form-check-input\" type=\"checkbox\" value=\"\" id=\"invalidCheck\" required>\n        <label class=\"form-check-label\" for=\"invalidCheck\">\n          Göndereceğim adresi yeminlen doğru yazdım\n        </label>\n        <div class=\"invalid-feedback\">\n          Kabul etmeden gönderemezsin maalesef.\n        </div>\n      </div>\n    </div>\n    <div class=\"col-12\">&nbsp;</div>\n    <div class=\"col-12\">\n      <button class=\"btn btn-primary\" type=\"submit\">Savulcoin Gönder</button>\n    </div>\n  </form>\n\n<script>\n    // Example starter JavaScript for disabling form submissions if there are invalid fields\n(function () {\n  'use strict'\n\n  // Fetch all the forms we want to apply custom Bootstrap validation styles to\n  var forms = document.querySelectorAll('.needs-validation')\n\n  // Loop over them and prevent submission\n  Array.prototype.slice.call(forms)\n    .forEach(function (form) {\n      form.addEventListener('submit', function (event) {\n        if (!form.checkValidity()) {\n          event.preventDefault()\n          event.stopPropagation()\n        }\n\n        form.classList.add('was-validated')\n      }, false)\n    })\n})()\n</script>";
-if(parentTemplate) {
-parentTemplate.rootRenderFunc(env, context, frame, runtime, cb);
-} else {
-cb(null, output);
-}
-;
-} catch (e) {
-  cb(runtime.handleError(e, lineno, colno));
-}
-}
-return {
 root: root
 };
 

@@ -4,7 +4,7 @@
 
     <ul class="list-group list-group-flush">
         {% for address in addresses %}
-        <li class="list-group-item">- <a href="#/adres/{{ address}}">{{ address }} </a> (<strong>{{ addressBalance[address] }}</strong> Savulcoin)</li>
+        <li class="list-group-item"><a href="javascript:void(0)" data-copy-to-clipboard="{{ address }}">Kopyala</a> - <a href="#/adres/{{ address }}">{{ address }}</a> (<strong>{{ addressBalance[address] }}</strong> Savulcoin)</li>
         {% endfor %}
     </ul>
 

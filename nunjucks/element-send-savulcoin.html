@@ -1,4 +1,6 @@
-
+{% if addressList.length < 1 %}
+  Para göndermek için ilk önce SavulCoin adresi oluşturman gerekiyor. <a href="#/yeni-adres">Oluşturmak için bana tıkla.</a>
+{% else %}
 <form id="send-savulcoin-form" class="row g-3 needs-validation" novalidate>
     <!-- To Address -->
     <div class="col-md-10">
@@ -19,7 +21,7 @@
 
         <select class="form-control" name="fromAddress" required>
             {% for address in addressList %}
-                <option value="{{ address.address }}">{{ address }}</option>
+                <option value="{{ address }}">{{ address }}</option>
             {% endfor %}
             
         </select>
@@ -79,3 +81,4 @@
     })
 })()
 </script>
+{% endif %}

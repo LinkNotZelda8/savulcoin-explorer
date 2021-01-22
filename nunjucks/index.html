@@ -10,5 +10,10 @@ SavulCoin bir kripto para birimidir. Hiçbir banka / kuruluş / devlet tarafınd
 <br>
 <h2>SavulCoin hesabı nasıl oluşturabilirim?</h2>
 <a href="#/yeni-hesap">Bana basarak yeni hesap oluşturabilirsin.</a>
+<br><br>
+
+{% if userData.isLoggedIn() %}
+    <a href="#/hesap" class="btn btn-primary">Hesabına geçmek için tıkla</a>
+{% endif %}
 
 {% endblock %}

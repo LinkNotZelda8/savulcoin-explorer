@@ -1,8 +1,7 @@
 $(document).on("click", "#create-new-address", function () {
     var button = $(this);
 
-    button.animate({ opacity: 0.5 }, 100); // Fade a little bit
-    button.prop("disabled", true);
+    window.main.ui.fadeAndDisable(button);
 
     window.main.api.createAddress(window.main.storage.userData, (address) => {
         button.hide();
