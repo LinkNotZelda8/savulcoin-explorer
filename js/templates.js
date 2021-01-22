@@ -274,7 +274,7 @@ var parentTemplate = null;
 output += "<div class=\"card\" style=\"width: 25rem;\">\n    <div class=\"card-body\">\n        <h5 class=\"card-title\">Hesap Bakiyesi</h5>\n        \n        ";
 if(runtime.contextOrFrameLookup(context, frame, "balance") >= 1000 * 1000) {
 output += "\n            <p class=\"card-text\">Hesap bakiyen (milyon): <strong>";
-output += runtime.suppressValue(runtime.contextOrFrameLookup(context, frame, "balancek"), env.opts.autoescape);
+output += runtime.suppressValue(runtime.contextOrFrameLookup(context, frame, "balanceML"), env.opts.autoescape);
 output += "ML SAVUL</strong></p>\n        ";
 ;
 }
