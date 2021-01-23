@@ -40,21 +40,18 @@ $("#app").on("render", (e, page) => {
         });
     }
 
-    function otherButtons() {
-        $(document).on("click", "#backup-account", () => {
-            window.main.ui.modalYesNo("Uyarı", "Hesabınızı yedeklemek istediğinize emin misiniz? <strong>Bu yedeğe sahip herkes hesabınıza erişebilir.</strong>", () => {
-                window.main.storage.export();
-            });
-        });
-
-        $(document).on("click", "#log-off", () => {
-            window.main.ui.modalYesNo("Uyarı", "Emin misiniz? <strong>Eğer yedeğiniz yoksa hesabınızı SONSUZA KADAR kaybedeceksiniz!</strong>", () => {
-                window.main.storage.logoff();
-                window.location.reload();
-            });
-        });
-    }
-
     displayAccountData();
-    otherButtons();
-})
+}) 
+
+$(document).on("click", "#backup-account", () => {
+    window.main.ui.modalYesNo("Uyarı", "Hesabınızı yedeklemek istediğinize emin misiniz? <strong>Bu yedeğe sahip herkes hesabınıza erişebilir.</strong>", () => {
+        window.main.storage.export();
+    });
+});
+
+$(document).on("click", "#log-off", () => {
+    window.main.ui.modalYesNo("Uyarı", "Emin misiniz? <strong>Eğer yedeğiniz yoksa hesabınızı SONSUZA KADAR kaybedeceksiniz!</strong>", () => {
+        window.main.storage.logoff();
+        window.location.reload();
+    });
+});
