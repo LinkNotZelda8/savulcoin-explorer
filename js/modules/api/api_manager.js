@@ -34,7 +34,7 @@ export default class APIManager {
                 this.fetchAddressBalance(address, (balance) => { totalBalance += balance });
             }
 
-            callback(totalBalance);
+            callback(totalBalance / 100000000);
         });
     }
 

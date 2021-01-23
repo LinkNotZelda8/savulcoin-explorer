@@ -9,7 +9,7 @@ $(document).on("submit", "#send-savulcoin-form", function (e) {
     }
 
     window.main.ui.fadeAndDisable(button);
-    window.main.api.createTransaction(window.main.storage.userData, formData.fromAddress, formData.toAddress, parseInt(formData.amount), (result) => {
+    window.main.api.createTransaction(window.main.storage.userData, formData.fromAddress, formData.toAddress, parseInt(formData.amount) * 100000000, (result) => {
         if (result)
             window.location.hash = "#/hesap"; // Return to homepage if the action was successful
     });
