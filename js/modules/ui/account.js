@@ -19,7 +19,7 @@ $("#app").on("render", (e, page) => {
                         balance = 0;
                         
                     done ++;
-                    totalBalance += balance;
+                    totalBalance += parseFloat(balance);
                     addressBalance[address] = balance;
                 });
             }
