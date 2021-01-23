@@ -2,6 +2,8 @@ const DEFAULT_NODES = [
     "https://savul-n2.yapsavun.com"
 ]
 
+const BLOCKCHAIN_CONSTANT = 100000000;
+
 export default class APIManager {
     nodeUrl = null;
     _nodeList = []
@@ -34,7 +36,7 @@ export default class APIManager {
                 this.fetchAddressBalance(address, (balance) => { totalBalance += balance });
             }
 
-            callback(totalBalance / 100000000);
+            callback(totalBalance / BLOCKCHAIN_CONSTANT);
         });
     }
 
@@ -46,7 +48,7 @@ export default class APIManager {
 
     fetchAddressBalance(addressId, callback) {
         this._get(`/operator/${addressId}/balance`, (result) => {
-            callback(result != null ? result.balance : 0);
+            callback(result != null ? (result.balance / BLOCKCHAIN_CONSTANT).toFixed(8) : 0);
         }, true);
     }
 
@@ -57,6 +59,8 @@ export default class APIManager {
     }
 
     createTransaction(userData, fromAddress, toAddress, amount, callback) {
+        amount *= BLOCKCHAIN_CONSTANT;
+
         this._post(`/operator/wallets/${userData.walletId}/transactions`, {
             fromAddress: fromAddress,
             toAddress: toAddress,
@@ -68,6 +72,10 @@ export default class APIManager {
             });
             callback(true);
         });
+    }
+
+    getTransactionFee() {
+        return 1 / BLOCKCHAIN_CONSTANT;
     }
 
     _error(err) {
