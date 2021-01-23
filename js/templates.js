@@ -640,7 +640,7 @@ output += "\n";
 });
 }
 else {
-output += "\n    <button id=\"create-new-wallet\" class=\"btn btn-primary\">İşlemi başlat</button>\n\n    <div id=\"create-wallet-1\" style=\"display: none\">\n        <textarea style=\"cursor: text\" class=\"form-control\" disabled cols=\"75\" rows=\"2\"></textarea>\n\n        Üstteki 12 rastgele harf senin şifren. Bu şifreyi bir yere kaydet, <strong>unutursan hesabının içindeki tüm Savulcoin'ler kaybolur</strong>.\n        <br><br>\n        <button type=\"button\" data-loading-text=\"Hesap oluşturuluyor...\" id=\"create-new-wallet-api\" class=\"btn btn-primary\">Şifreyi kaydettim ve devam ediyorum</button>\n    </div>\n\n    <div id=\"create-wallet-2\" style=\"display: none\">\n        SavulCoin hesabın başarıyla oluşturuldu! <br>\n        <a href=\"#/hesap\">Hesabını kullanmaya başlamak için tıkla.</a>\n    </div>\n";
+output += "\n    <button id=\"create-new-wallet\" class=\"btn btn-primary\">İşlemi başlat</button>\n\n    <div id=\"create-wallet-1\" style=\"display: none\">\n        <textarea style=\"cursor: text\" class=\"form-control\" disabled cols=\"75\" rows=\"2\"></textarea>\n\n        Üstteki 12 rastgele kelime senin şifren. Bu 12 kelimeyi bir yere kaydet, <strong>unutursan hesabının içindeki tüm Savulcoin'ler kaybolur</strong>.\n        <br><br>\n        <button type=\"button\" data-loading-text=\"Hesap oluşturuluyor...\" id=\"create-new-wallet-api\" class=\"btn btn-primary\">Şifreyi kaydettim ve devam ediyorum</button>\n    </div>\n\n    <div id=\"create-wallet-2\" style=\"display: none\">\n        SavulCoin hesabın başarıyla oluşturuldu! <br>\n        <a href=\"#/hesap\">Hesabını kullanmaya başlamak için tıkla.</a>\n    </div>\n";
 ;
 }
 output += "\n\n";
