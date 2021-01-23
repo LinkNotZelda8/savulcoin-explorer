@@ -80,7 +80,7 @@ try {
 var frame = frame.push(true);
 output += "\n<h1 class=\"mt-4\">SavulCoin hesabın</h1>\n<hr>\n\n";
 if((lineno = 5, colno = 25, runtime.callWrap(runtime.memberLookup((runtime.contextOrFrameLookup(context, frame, "userData")),"isLoggedIn"), "userData[\"isLoggedIn\"]", context, []))) {
-output += "\n    Cüzdan ID: <input type=\"text\" value=\"";
+output += "\n    Cüzdan ID ( BURAYA <strong>SAVULCOIN GÖNDERİLEMEZ</strong> ): <input type=\"text\" value=\"";
 output += runtime.suppressValue(runtime.memberLookup((runtime.contextOrFrameLookup(context, frame, "userData")),"walletId"), env.opts.autoescape);
 output += "\" disabled style=\"cursor: text;\" class=\"form-control\">\n    <br>\n    <div id=\"account-balance\">\n        <div class=\"spinner-border text-primary\" role=\"status\">\n            <span class=\"sr-only\">Yükleniyor...</span>\n        </div>\n    </div>\n\n    <br>\n    <h5>Adreslerin</h5>\n    <div id=\"account-addresses\">\n        <div class=\"spinner-border text-primary\" role=\"status\">\n            <span class=\"sr-only\">Yükleniyor...</span>\n        </div>\n    </div>\n    <br>\n    <h5>Diğer</h5>\n    <a href=\"javascript:void(0)\" id=\"backup-account\" class=\"btn btn-success\">Hesabını Yedekle</a>\n    <a href=\"javascript:void(0)\" id=\"log-off\" class=\"btn btn-danger\">Çıkış Yap</a>\n\n";
 ;
